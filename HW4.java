@@ -1,45 +1,39 @@
-import java.util.Scanner;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.PriorityQueue;
+import java.util.Random;
 
-public class HW4 {
-	
-	// median exercise #1
-	public static double perfectMedian(BinarySearchTree bst){
-		// your code goes here, you a free to add helper methods
-		return 0;	
+public class HW5 {
+    
+	public static void printPlayersById(PriorityQueue<Player> queue) {
+		Player[] copy = queue.toArray(new Player[queue.size()]);
+		Arrays.sort(copy, new Comparator<Player>() {
+			@Override
+			public int compare(Player p1, Player p2) {
+				return p1.id - p2.id;
+			}
+		});
+		for (Player player : copy) {
+			System.out.println(player);
+		}
 	}
+	
+	/* num_players = number of players
+	 * portion = portion of points passed from the player with the most points to the one with the least
+	 * min_points = minimum of the initital points range
+	 * max_points = max of the initial points range
+	 * rounds = number of rounds to play 
+	 */
+	public static void playGame(int num_players, double portion, int min_points, int max_points, int rounds, int seed) {
+		Random rand = new Random(seed);
 
-	// median exercise #2
-	public static double anyMedian(BinarySearchTree bst){
-		// your code goes here, you a free to add helper methods
-		return 0;	
-	}
-	
-	// median exercise #3
-	public static double nChildrenMedian(BinarySearchTree bst){
-		// your code goes here, you a free to add helper methods
-		return 0;	
-	}
-	
-	// median exercise #4
-	public static double twoTreesMedian(BinarySearchTree tree1, BinarySearchTree tree2){
-		// your code goes here, you a free to add helper methods
-		return 0;	
-	}
+		// your code goes here
+
+		printPlayersById(maxHeap);
+    	}
 
 	public static void main(String[] args) {
-		// this method is for your own testing purposes
-		BinarySearchTree myTree = new BinarySearchTree();
-
-		Scanner scan = new Scanner(System.in);
-			
-		// reads integer tokens from the console and constructs a BinarySearchTree from them
-		while (scan.hasNextInt()) {
-			int value = scan.nextInt();
-			myTree.add(value);
-		}
-		
-		scan.close();
-		anyMedian(myTree);
+        	playGame(5, 0.3, 0, 100, 4, 15);
 	}
 
 }
